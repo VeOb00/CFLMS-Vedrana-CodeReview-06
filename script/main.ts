@@ -1,6 +1,7 @@
 //the class Location is already defined in "lib": "dom", that is why this documents Location = MyLocation
 let locations: Array<MyLocation> = [];
 
+declare var sortOrder: string;
 
 
 
@@ -22,7 +23,7 @@ class MyLocation {
     }
 
     display() {
-        var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = { weekday: "short", year: "numeric", month: "long", day: "numeric" };
         return `
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card">
@@ -32,7 +33,7 @@ class MyLocation {
                     <div class="card-body">
                         <h5 class="card-title">${this.locationName}</h5>
                         <p class="card-text">${this.address}, ${this.zipCode} ${this.city}</p>
-                        <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString('en-DE', options)}</small></p>
+                        <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString("en-DE", options)}</small></p>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@ class Restaurant extends MyLocation {
     }
 
     display() {
-        var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = { weekday: "short", year: "numeric", month: "long", day: "numeric" };
         return `
         <div class="col-md-6 col-lg-3 mb-4">
             <div class="card">
@@ -68,7 +69,7 @@ class Restaurant extends MyLocation {
                         <li>${this.type}</li>
                         <li>${this.url}</li>
                     </ul>
-                    <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString('en-DE', options)}</small></p>
+                    <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString("en-DE", options)}</small></p>
                 </div>
             </div>
         </div>
@@ -91,7 +92,7 @@ class Events extends MyLocation {
     }
 
     display() {
-        var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = { weekday: "short", year: "numeric", month: "long", day: "numeric" };
         var optionsTime = {hour: "2-digit", minute: "2-digit"};
         return `
         <div class="col-md-6 col-lg-3 mb-4">
@@ -104,11 +105,11 @@ class Events extends MyLocation {
                     <p class="card-text">${this.address}, ${this.zipCode} ${this.city}</p>
                     <ul>
                         <li>${this.url}</li>
-                        <li>date: ${this.eventDate.toLocaleString('en-DE', options)}</li>
-                        <li>time: ${this.eventTime.toLocaleString('en-DE', optionsTime)}</li>
-                        <li>&#8364; ${this.eventPrice}</li>
+                        <li>date: ${this.eventDate.toLocaleString("en-DE", options)}</li>
+                        <li>time: ${this.eventTime.toLocaleString("en-DE", optionsTime)}</li>
+                        <li>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(this.eventPrice)}</li>
                     </ul>
-                    <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString('en-DE', options)}</small></p>
+                    <p class="card-text text-right"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString("en-DE", options)}</small></p>
                 </div>
             </div>
         </div>
@@ -123,7 +124,17 @@ locations.push(new Restaurant("BioFrische", "Stutterheimstraße 6", 1150, "Wien"
 locations.push(new Events("Cats - the musical", "http://catsmusical.at", new Date(2020, 12, 15), new Date(2020,12,15,20,0), "Ronacher- Seilerstätte 9", 1010, "Wien", 120.50,"media/le-cats.jpg", new Date (2020,6,10)));
 locations.push(new Events("Guns N' Roses", "www.gunsandroses.com", new Date(2020,6,9), new Date(2020,6,9,19,30), "Ernst-Happel Stadion, Meierstraße 7", 1020, "Wien", 95.50, "media/le-gunsnroses.jpg", new Date (2020,3,2)));
 
-// console.log(locations);
+
+if (sortOrder == "descending abc") {
+    locations.sort((first, second) => second.locationName.localeCompare(first.locationName));
+} else if (sortOrder == "ascending abc") {
+    locations.sort((first, second) => first.locationName.localeCompare(second.locationName));
+} else if  (sortOrder == "ascending") {
+    locations.sort((first, second) => second.dateTimeCreated.getTime() - first.dateTimeCreated.getTime());
+} else if (sortOrder == "descending") {
+    locations.sort((first, second) => first.dateTimeCreated.getTime() - second.dateTimeCreated.getTime());
+}
+
 
 let cardsLocation = document.getElementById("content");
 locations.forEach((location) => {
@@ -131,6 +142,7 @@ locations.forEach((location) => {
         cardsLocation.innerHTML += location.display()
     } 
 });
+
 
 
 
