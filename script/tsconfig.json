@@ -4,13 +4,13 @@
         "target": "ES5",
         "sourceMap": true,
         "lib": [
-            "es5", "es6", "es2016", "dom" //added pre-work
+            "es5", "es6", "es2016", "dom" //class Location defined in "dom"
         ],
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "strict": true
     },
-    // "exclude": [
-    //     "node_modules"
-    // ]
+    "exclude": [
+        "node_modules"
+    ]
 }
