@@ -74,7 +74,7 @@ class Restaurant extends MyLocation {
                         <ul class="list-unstyled">
                             <li>tel: ${this.telNr}</li>
                             <li>cousine: ${this.type}</li>
-                            <li><a href="${this.url}" target="_blank">${this.url}</a></li>
+                            <li><a href="${this.url}" class="text-secondary" target="_blank">${this.url}</a></li>
                         </ul>
                     </div>
                     <div>
@@ -88,15 +88,13 @@ class Restaurant extends MyLocation {
 }
 
 class Events extends MyLocation {
-    eventDate: Date;
-    eventTime: Date;  
+    eventDate: Date; //additional property eventTime not neccessary
     eventPrice: number;
     url: string;
 
-    constructor(name: string, urlAdress: string, eventDate: Date, eventTime: Date, streetNameAndNumber: string, zipCode: number, city: string, eventPrice: number, image: string, timeCreated: Date) {
+    constructor(name: string, urlAdress: string, eventDate: Date, streetNameAndNumber: string, zipCode: number, city: string, eventPrice: number, image: string, timeCreated: Date) {
         super(name, streetNameAndNumber, zipCode, city, image, timeCreated);
         this.eventDate = eventDate;
-        this.eventTime = eventTime;
         this.eventPrice = eventPrice;
         this.url = urlAdress;
     }
@@ -116,10 +114,10 @@ class Events extends MyLocation {
                         <p class="card-text">${this.address}, ${this.zipCode} ${this.city}</p>
                         <hr>
                         <ul class="list-unstyled">
-                            <li>${this.url}</li>
+                            <li><a href="${this.url}" class="text-secondary" target="_blank">${this.url}</a></li>
                             <li>date: ${this.eventDate.toLocaleString("en-DE", options)}</li>
-                            <li>time: ${this.eventTime.toLocaleString("en-DE", optionsTime)}</li>
-                            <li>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(this.eventPrice)}</li>
+                            <li>time: ${this.eventDate.toLocaleString("en-DE", optionsTime)}</li>
+                            <li>price: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(this.eventPrice)}</li>
                         </ul>
                     </div>
                     <div>
@@ -136,17 +134,17 @@ locations.push(new MyLocation("St. Charles Church", "Karlsplartz 1", 1010, "Vien
 locations.push(new MyLocation("Schönbrunn Park", "Maxingstraße 13b", 1130, "Wien", "media/loc-schoenbrunn.jpg", new Date(2019, 12, 5)));
 locations.push(new Restaurant("ON Restaurant", "Wehrgasse 8", 1050, "Vienna", "media/locrest-on.jpg", new Date(2020, 1, 15), "+43(1)5854900", "Chinese", "http://www.restaurant-on.at/"));
 locations.push(new Restaurant("BioFrische", "Stutterheimstraße 6", 1150, "Wien", "media/locrest-biofrische.jpg", new Date(2020, 3, 24), "+43(1) 9529215", "Indian", "https://biofrische.wien/"));
-locations.push(new Events("Cats - the musical", "http://catsmusical.at", new Date(2020, 12, 15), new Date(2020,12,15,20,0), "Ronacher- Seilerstätte 9", 1010, "Wien", 120.50,"media/loce-cats.jpg", new Date (2020,6,10)));
-locations.push(new Events("Guns N' Roses", "www.gunsandroses.com", new Date(2020,6,9), new Date(2020,6,9,19,30), "Ernst-Happel Stadion, Meierstraße 7", 1020, "Wien", 95.50, "media/loce-gunsnroses.jpg", new Date (2020,3,2)));
+locations.push(new Events("Cats - the musical", "http://catsmusical.at", new Date(2020,12,15,20,0), "Ronacher- Seilerstätte 9", 1010, "Wien", 120.50,"media/loce-cats.jpg", new Date (2020,6,10)));
+locations.push(new Events("Guns N' Roses", "https://www.gunsnroses.com/", new Date(2020,6,9,19,30), "Ernst-Happel Stadion, Meierstraße 7", 1020, "Wien", 95.50, "media/loce-gunsnroses.jpg", new Date (2020,3,2)));
 locations.push(new MyLocation("Kahlenberg", "Am Kahlenberg 2-3", 1190, "Wien", "media/loc-kb.jpg", new Date(2018,8,12)));
 locations.push(new MyLocation("Haus des Meeres", "Fritz-Grünbaum-Platz 1", 1060, "Wien", "media/loc-hdm.jpg", new Date(2019,3,4)));
 locations.push(new MyLocation("Donauinsel", "Donauinsel", 1220, "Wien", "media/loc-donauinsel.jpg", new Date(2017,7,24)));
 locations.push(new MyLocation("Belvedere Palace", "Prinz Eugen-Straße 58", 1030, "Wien", "media/loc-belvedere.jpg", new Date(2016,4,11)));
 locations.push(new MyLocation("Hunderwasser House", "Kegelgasse 36-38", 1030, "Wien", "media/loc-hundertw.jpg", new Date(2015,9,1)));
-locations.push(new Events("Tool", "https://toolband.com/", new Date(2019,6,5), new Date(2019,6,5,19,30), "Roland-Rainer-Platz 1", 1150, "Wien", 120, "media/loce-tool.jpg", new Date(2019,6,1)));
-locations.push(new Events ("Muse", "https://www.muse.mu/", new Date(2016,5,9), new Date(2016,5,9,19,30), "Roland-Rainer-Platz 1", 1150, "Wien", 110, "media/loce-muse.jpg", new Date(2016,4,29)));
+locations.push(new Events("Tool", "https://toolband.com/", new Date(2019,6,5,19,30), "Roland-Rainer-Platz 1", 1150, "Wien", 120, "media/loce-tool.jpg", new Date(2019,6,1)));
+locations.push(new Events ("Muse", "https://www.muse.mu/", new Date(2016,5,9,19,30), "Roland-Rainer-Platz 1", 1150, "Wien", 110, "media/loce-muse.jpg", new Date(2016,4,29)));
 locations.push(new Restaurant("Noble Savage", "Salzgries 15", 1010, "Wien", "media/locrest-noble.jpg", new Date(2019.11,10), "0664/99 49 83 89", "International", "https://www.noblesavage.at/"));
-locations.push(new Restaurant("Seidengasse 31", "Seidengasse 31", 1070, "Wien", "media/locrest-seidengasse.jpg", new Date(2020,1,5), "0677/637 57 940", "Mediterranean",""));
+locations.push(new Restaurant("Seidengasse 31", "Seidengasse 31", 1070, "Wien", "media/locrest-seidengasse.jpg", new Date(2020,1,5), "0677/637 57 940", "Mediterranean","")); //currently no webpage avaliable
 locations.push(new Restaurant("Sperling im Augarten", "Obere Augartenstraße 1", 1020, "Wien", "media/locrest-sperling.jpg", new Date(2019,12,11), "01/997 72 66", "austrian international","https://www.sperling.wien/"));
 
 
