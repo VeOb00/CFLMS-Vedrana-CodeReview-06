@@ -1,0 +1,11 @@
+.jumbotron {
+  background-image: url("../media/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+}
+
+.card img {
+  display: block;
+}
+/*# sourceMappingURL=main.css.map */
