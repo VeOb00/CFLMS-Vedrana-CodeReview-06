@@ -3,8 +3,6 @@ let locations: Array<MyLocation> = [];
 
 declare var sortOrder: string;
 
-
-
 class MyLocation {
     locationName: string;
     city: string;
@@ -78,7 +76,7 @@ class Restaurant extends MyLocation {
                         </ul>
                     </div>
                     <div>
-                    <p class="card-text text-right bottom-text"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString("en-DE", options)}</small></p>
+                        <p class="card-text text-right bottom-text"><small class="text-muted">Created: ${this.dateTimeCreated.toLocaleString("en-DE", options)}</small></p>
                     </div>
                 </div>
             </div>
@@ -148,7 +146,6 @@ locations.push(new Restaurant("Seidengasse 31", "Seidengasse 31", 1070, "Wien", 
 locations.push(new Restaurant("Sperling im Augarten", "Obere Augartenstraße 1", 1020, "Wien", "media/locrest-sperling.jpg", new Date(2019,12,11), "01/997 72 66", "austrian international","https://www.sperling.wien/"));
 
 
-
 if (sortOrder == "descending abc") {
     locations.sort((first, second) => second.locationName.localeCompare(first.locationName));
 } else if (sortOrder == "ascending abc") {
@@ -160,17 +157,7 @@ if (sortOrder == "descending abc") {
 }
 
 
-let cardsLocation = document.getElementById("content");
+let cardsLocation = document.getElementById("content")!;
 locations.forEach((location) => {
-    if (cardsLocation != null) {
-        cardsLocation.innerHTML += location.display()
-    } 
+    cardsLocation.innerHTML += location.display()
 });
-
-
-
-
-
-
-
-

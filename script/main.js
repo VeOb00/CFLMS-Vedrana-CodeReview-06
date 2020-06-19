@@ -40,7 +40,7 @@ var Restaurant = /** @class */ (function (_super) {
     }
     Restaurant.prototype.display = function () {
         var options = { weekday: "short", year: "numeric", month: "long", day: "numeric" };
-        return "\n        <div class=\"col-md-6 col-lg-3 mb-4 d-md-flex align-items-md-stretch\">\n            <div class=\"card shadow-sm\">\n                <div class=\"d-none d-md-block\">\n                    <img src=\"" + this.teaserImage + "\" class=\"card-img-top\" alt=\"" + this.locationName + " image\">\n                </div>\n                <div class=\"card-body d-flex flex-column justify-content-between\">\n                    <div>\n                        <h5 class=\"card-title\">" + this.locationName + "</h5>\n                        <p class=\"card-text\">" + this.address + ", " + this.zipCode + " " + this.city + "</p>\n                        <hr>\n                        <ul class=\"list-unstyled\">\n                            <li>tel: " + this.telNr + "</li>\n                            <li>cousine: " + this.type + "</li>\n                            <li><a href=\"" + this.url + "\" class=\"text-secondary\" target=\"_blank\">" + this.url + "</a></li>\n                        </ul>\n                    </div>\n                    <div>\n                    <p class=\"card-text text-right bottom-text\"><small class=\"text-muted\">Created: " + this.dateTimeCreated.toLocaleString("en-DE", options) + "</small></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        ";
+        return "\n        <div class=\"col-md-6 col-lg-3 mb-4 d-md-flex align-items-md-stretch\">\n            <div class=\"card shadow-sm\">\n                <div class=\"d-none d-md-block\">\n                    <img src=\"" + this.teaserImage + "\" class=\"card-img-top\" alt=\"" + this.locationName + " image\">\n                </div>\n                <div class=\"card-body d-flex flex-column justify-content-between\">\n                    <div>\n                        <h5 class=\"card-title\">" + this.locationName + "</h5>\n                        <p class=\"card-text\">" + this.address + ", " + this.zipCode + " " + this.city + "</p>\n                        <hr>\n                        <ul class=\"list-unstyled\">\n                            <li>tel: " + this.telNr + "</li>\n                            <li>cousine: " + this.type + "</li>\n                            <li><a href=\"" + this.url + "\" class=\"text-secondary\" target=\"_blank\">" + this.url + "</a></li>\n                        </ul>\n                    </div>\n                    <div>\n                        <p class=\"card-text text-right bottom-text\"><small class=\"text-muted\">Created: " + this.dateTimeCreated.toLocaleString("en-DE", options) + "</small></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        ";
     };
     return Restaurant;
 }(MyLocation));
@@ -90,8 +90,6 @@ else if (sortOrder == "descending") {
 }
 var cardsLocation = document.getElementById("content");
 locations.forEach(function (location) {
-    if (cardsLocation != null) {
-        cardsLocation.innerHTML += location.display();
-    }
+    cardsLocation.innerHTML += location.display();
 });
 //# sourceMappingURL=main.js.map
