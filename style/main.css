@@ -3,9 +3,19 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../media/hero.jpg");
   background-size: cover;
   background-position: center;
+  background-color: #967B69;
 }
 
 .dropdown-item:active {
-  background-color: silver;
+  background-color: #967B69;
+}
+
+footer img {
+  width: 60%;
+  height: 100%;
+}
+
+.jumbotron .display-4 {
+  text-transform: lowercase;
 }
 /*# sourceMappingURL=main.css.map */
