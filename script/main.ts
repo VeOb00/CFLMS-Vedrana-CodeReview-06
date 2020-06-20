@@ -74,9 +74,9 @@ class Restaurant extends MyLocation {
                         <p class="card-text">${this.address}, ${this.zipCode} ${this.city}</p>
                         <hr>
                         <ul class="list-unstyled">
+                            <li><a href="${this.url}" class="text-secondary" target="_blank">${this.url}</a></li>
                             <li>tel: ${this.telNr}</li>
                             <li>cousine: ${this.type}</li>
-                            <li><a href="${this.url}" class="text-secondary" target="_blank">${this.url}</a></li>
                         </ul>
                     </div>
                     <div>
