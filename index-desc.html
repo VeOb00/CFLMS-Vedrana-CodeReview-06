@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style/main.css">
-    <title>Travel-o-matic - Home</title>
+    <title>Travel-o-matic - date descending</title>
+    <script> let sortOrder = "descending";</script>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow p-3">
             <a class="navbar-brand" href="index.html">
-                <img src="media/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo" loading="lazy">
+                <img src="media/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo"
+                    loading="lazy">
                 Travel-o-matic
-              </a>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,52 +45,41 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="index-asc.html">newest first</a>
-                            <a class="dropdown-item" href="index-desc.html">oldest first<span class="sr-only">(current)</span></a>
+                            <a class="dropdown-item" href="index-desc.html">oldest first<span
+                                    class="sr-only">(current)</span></a>
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="jumbotron text-light mt-5">
+        <div class="jumbotron text-light mt-5 rounded-0">
             <br>
             <h1 class="display-4">Travel-o-matic</h1>
             <p class="lead">It's a big wide world, but this is the best travel blog near and far!</p>
             <hr class="my-4 bg-light">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga dignissimos, dolorem deleniti assumenda deserunt consequatur. Neque quisquam pariatur facere sunt. Rerum veniam accusantium exercitationem, reiciendis facere ipsam ipsa illo.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga dignissimos, dolorem deleniti
+                assumenda deserunt consequatur. Neque quisquam pariatur facere sunt. Rerum veniam accusantium
+                exercitationem, reiciendis facere ipsam ipsa illo.</p>
             <br><br><br>
-            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
         </div>
-
-
-
     </header>
 
     <main>
         <div class="container-fluid">
             <div id="content" class="row">
-             
-
             </div>
-
-        </div>
-
-        <footer>
-           <div class="container-fluid text-center bg-light border-muted border-top">
-               <img src="media/logo.png" class="my-3" alt="logo" width="120" height="120">
-               <p>Travel-o-matic &#169; CodeFactory 2020</p>
-           </div>
-
-        </footer>
-
-
+        </div>    
     </main>
+    
+    <footer>
+        <div class="container-fluid text-center bg-light border-muted border-top">
+            <img src="media/logo.png" class="my-3" alt="logo" width="120" height="120">
+            <p>Travel-o-matic &#169; CodeFactory 2020</p>
+        </div>
+    </footer>
 
 
-
-    <script>
-        let sortOrder = "descending" 
-    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
